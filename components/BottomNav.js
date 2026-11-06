@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Icon from './Icon';
 
 export default function BottomNav() {
   const pathname = usePathname();
@@ -30,14 +31,11 @@ export default function BottomNav() {
                   : "text-on-surface-variant hover:text-primary"
               }`}
             >
-              <span
-                className="material-symbols-outlined text-[22px] mb-0.5"
-                style={{
-                  fontVariationSettings: isActive ? "'FILL' 1, 'wght' 600" : "'FILL' 0, 'wght' 400"
-                }}
-              >
-                {item.icon}
-              </span>
+              <Icon
+                name={item.icon}
+                size={22}
+                className={`mb-0.5 ${isActive ? 'stroke-[2.5px]' : 'stroke-[1.75px]'}`}
+              />
               <span className="font-label-sm text-[11px] text-center leading-none">
                 {item.label}
               </span>

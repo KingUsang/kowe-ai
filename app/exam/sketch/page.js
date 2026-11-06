@@ -1,4 +1,5 @@
 'use client';
+import Icon from '@/components/Icon';
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
@@ -68,7 +69,7 @@ export default function ScratchpadSketchMode() {
             href="/exam/scratchpad"
             className="p-1 rounded-lg bg-surface-container text-primary hover:bg-surface-container-high transition-colors"
           >
-            <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+            <Icon name="arrow_back" className="text-[20px]" />
           </Link>
           <span className="font-title-md text-primary font-semibold text-sm">
             Chemical Structure Sketchpad
@@ -99,14 +100,14 @@ export default function ScratchpadSketchMode() {
             className={`p-1.5 rounded ${tool === 'pen' ? 'bg-primary-container text-on-primary' : 'text-on-surface-variant'}`}
             title="Pen"
           >
-            <span className="material-symbols-outlined text-[18px]">draw</span>
+            <Icon name="draw" className="text-[18px]" />
           </button>
           <button
             onClick={() => setTool('eraser')}
             className={`p-1.5 rounded ${tool === 'eraser' ? 'bg-primary-container text-on-primary' : 'text-on-surface-variant'}`}
             title="Eraser"
           >
-            <span className="material-symbols-outlined text-[18px]">ink_eraser</span>
+            <Icon name="ink_eraser" className="text-[18px]" />
           </button>
         </div>
 

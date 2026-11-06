@@ -1,4 +1,5 @@
 'use client';
+import Icon from '@/components/Icon';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -119,7 +120,7 @@ export default function TimedExamMode() {
             href="/practice"
             className="flex-1 flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-full text-on-surface-variant hover:text-primary transition-colors"
           >
-            <span className="material-symbols-outlined text-[16px]">menu_book</span>
+            <Icon name="menu_book" className="text-[16px]" />
             <span className="font-label-sm text-label-sm">Practice Mode</span>
           </Link>
         </div>
@@ -131,7 +132,7 @@ export default function TimedExamMode() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
-                <span className="material-symbols-outlined text-[18px]">alarm</span>
+                <Icon name="alarm" className="text-[18px]" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
@@ -153,7 +154,7 @@ export default function TimedExamMode() {
               id="open-palette-btn"
               type="button"
             >
-              <span className="material-symbols-outlined text-[18px]">grid_view</span>
+              <Icon name="grid_view" className="text-[18px]" />
               <span className="font-label-sm text-label-sm font-semibold">
                 Q {currentIndex + 1}/40
               </span>
@@ -290,7 +291,7 @@ export default function TimedExamMode() {
                 currentIndex === 0 ? 'opacity-40 cursor-not-allowed text-on-surface-variant' : 'text-primary hover:bg-surface-container'
               }`}
             >
-              <span className="material-symbols-outlined text-[16px]">arrow_back</span>
+              <Icon name="arrow_back" className="text-[16px]" />
               <span>Previous</span>
             </button>
 
@@ -299,7 +300,7 @@ export default function TimedExamMode() {
                 href="/exam/scratchpad"
                 className="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm flex items-center gap-1"
               >
-                <span className="material-symbols-outlined text-[16px]">draw</span>
+                <Icon name="draw" className="text-[16px]" />
                 <span>Scratchpad</span>
               </Link>
 
@@ -336,7 +337,7 @@ export default function TimedExamMode() {
                 onClick={() => setIsPaletteOpen(false)}
                 className="p-1 rounded-full text-on-surface-variant hover:bg-surface-container"
               >
-                <span className="material-symbols-outlined text-[20px]">close</span>
+                <Icon name="close" className="text-[20px]" />
               </button>
             </div>
 

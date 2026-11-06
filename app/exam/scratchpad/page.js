@@ -1,4 +1,5 @@
 'use client';
+import Icon from '@/components/Icon';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -29,7 +30,7 @@ export default function QuickScratchpad() {
             href="/exam"
             className="p-1 rounded-lg bg-surface-container text-primary hover:bg-surface-container-high transition-colors"
           >
-            <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+            <Icon name="arrow_back" className="text-[20px]" />
           </Link>
           <div>
             <h1 className="font-title-md text-primary font-semibold">Exam Scratchpad</h1>
@@ -44,7 +45,7 @@ export default function QuickScratchpad() {
             href="/exam/sketch"
             className="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-xs flex items-center gap-1"
           >
-            <span className="material-symbols-outlined text-[16px]">draw</span>
+            <Icon name="draw" className="text-[16px]" />
             <span>Switch to Sketch</span>
           </Link>
           <button
@@ -54,7 +55,7 @@ export default function QuickScratchpad() {
             className="p-1.5 text-on-surface-variant hover:text-error transition-colors"
             title="Clear notes"
           >
-            <span className="material-symbols-outlined text-[18px]">delete</span>
+            <Icon name="delete" className="text-[18px]" />
           </button>
         </div>
       </div>

@@ -1,4 +1,5 @@
 'use client';
+import Icon from '@/components/Icon';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -49,7 +50,7 @@ export default function PracticeAssessments() {
             </span>
           </div>
           <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md">
-            <span className="material-symbols-outlined text-[16px] text-secondary">schedule</span>
+            <Icon name="schedule" className="text-[16px] text-secondary" />
             <span className="tabular-nums font-medium text-xs">28:14</span>
           </div>
         </div>
@@ -77,7 +78,7 @@ export default function PracticeAssessments() {
             href="/exam"
             className="py-1.5 px-2 rounded text-on-surface-variant hover:text-primary font-label-sm text-label-sm text-center flex items-center justify-center gap-1 transition-all"
           >
-            <span className="material-symbols-outlined text-[15px]">timer</span>
+            <Icon name="timer" className="text-[15px]" />
             <span>Timed Mock (45m)</span>
           </Link>
         </div>
@@ -87,7 +88,7 @@ export default function PracticeAssessments() {
           <div className="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
             <span className="font-semibold text-primary">Question {currentIndex + 1} of {PRACTICE_QUESTIONS.length}</span>
             <span className="inline-flex items-center gap-1 text-secondary font-medium">
-              <span className="material-symbols-outlined text-[13px]">verified</span>
+              <Icon name="verified" className="text-[13px]" />
               <span>{currentQ.tag}</span>
             </span>
           </div>
@@ -191,7 +192,7 @@ export default function PracticeAssessments() {
         {showExplanation && (
           <div className="bg-surface-container-low rounded-xl p-4 flex flex-col gap-2.5 border border-surface-container animate-in fade-in">
             <div className="flex items-center gap-1.5 text-primary">
-              <span className="material-symbols-outlined text-[18px]">verified</span>
+              <Icon name="verified" className="text-[18px]" />
               <span className="font-title-md text-[14px]">Model Solution &amp; Rationale</span>
             </div>
             <p className="font-body-sm text-body-sm text-on-surface leading-relaxed">
@@ -201,7 +202,7 @@ export default function PracticeAssessments() {
               <span>{currentQ.pastExamInfo}</span>
               <Link href="/ai-tutor" className="text-primary-container font-semibold hover:underline flex items-center gap-0.5">
                 <span>Ask AI Tutor to clarify</span>
-                <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
+                <Icon name="arrow_forward" className="text-[13px]" />
               </Link>
             </div>
           </div>
@@ -218,7 +219,7 @@ export default function PracticeAssessments() {
                 : 'bg-surface-container hover:bg-surface-container-high text-primary'
             }`}
           >
-            <span className="material-symbols-outlined text-[16px]">arrow_back</span>
+            <Icon name="arrow_back" className="text-[16px]" />
             <span>Previous</span>
           </button>
 
@@ -232,7 +233,7 @@ export default function PracticeAssessments() {
             }`}
           >
             <span>Next Question</span>
-            <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            <Icon name="arrow_forward" className="text-[16px]" />
           </button>
         </div>
       </div>

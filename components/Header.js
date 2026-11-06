@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { USER } from '@/lib/mockData';
+import Icon from './Icon';
 
 export default function Header({ pageTitle = 'Home Dashboard' }) {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -19,7 +20,6 @@ export default function Header({ pageTitle = 'Home Dashboard' }) {
       <div className="max-w-2xl mx-auto h-16 px-gutter-mobile flex items-center justify-between gap-space-sm">
         <div className="flex items-center gap-space-sm min-w-0 flex-1">
           <Link href="/" className="shrink-0 flex items-center">
-            {/* Logo mark */}
             <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-fixed font-serif font-bold text-lg shadow-sm">
               K
             </div>
@@ -53,7 +53,7 @@ export default function Header({ pageTitle = 'Home Dashboard' }) {
             className="relative w-11 h-11 flex items-center justify-center rounded text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors"
             type="button"
           >
-            <span className="material-symbols-outlined text-[22px]">notifications</span>
+            <Icon name="notifications" size={22} />
             {unread && (
               <span className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface"></span>
             )}

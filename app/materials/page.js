@@ -1,4 +1,5 @@
 'use client';
+import Icon from '@/components/Icon';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -118,7 +119,7 @@ export default function StudyMaterials() {
                 onClick={() => setActiveModal(null)}
                 className="p-1 rounded-full text-on-surface-variant hover:bg-surface-container"
               >
-                <span className="material-symbols-outlined text-[20px]">close</span>
+                <Icon name="close" className="text-[20px]" />
               </button>
             </div>
 

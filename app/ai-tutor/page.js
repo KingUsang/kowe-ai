@@ -1,4 +1,5 @@
 'use client';
+import Icon from '@/components/Icon';
 
 import { useState, useRef, useEffect } from 'react';
 import { INITIAL_CHAT } from '@/lib/mockData';
@@ -121,7 +122,7 @@ export default function AiTutor() {
         <div className="flex items-center justify-between gap-space-xs">
           <div className="flex items-center gap-1.5 min-w-0">
             <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary-container text-on-primary text-[10px] font-bold shrink-0">
-              <span className="material-symbols-outlined text-[13px]">school</span>
+              <Icon name="school" className="text-[13px]" />
             </span>
             <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant truncate">
               PCH 301 • Pharm Chemistry II
@@ -129,7 +130,7 @@ export default function AiTutor() {
           </div>
           <button className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-surface-variant text-on-surface font-label-sm text-label-sm transition-colors shrink-0" type="button">
             <span>Syllabus Ref: Wk 4.2</span>
-            <span className="material-symbols-outlined text-[14px]">tune</span>
+            <Icon name="tune" className="text-[14px]" />
           </button>
         </div>
         <div className="flex items-baseline justify-between gap-2">
@@ -143,7 +144,7 @@ export default function AiTutor() {
         {/* Learning Objective Progress Bar */}
         <div className="flex items-center justify-between gap-2 pt-0.5">
           <div className="flex items-center gap-1.5 min-w-0">
-            <span className="material-symbols-outlined text-[14px] text-primary-container shrink-0" style={{ fontVariationSettings: "'FILL' 1" }}>task_alt</span>
+            <Icon name="task_alt" className="text-[14px] text-primary-container shrink-0" />
             <p className="font-body-sm text-body-sm text-on-surface-variant truncate text-[12px]">
               Objective: Acid degradation mechanisms &amp; EWG stabilization
             </p>
@@ -182,7 +183,7 @@ export default function AiTutor() {
               <div key={msg.id} className="flex flex-col items-start self-start w-full space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded bg-primary-container flex items-center justify-center text-on-primary">
-                    <span className="material-symbols-outlined text-[15px]">auto_stories</span>
+                    <Icon name="auto_stories" className="text-[15px]" />
                   </div>
                   <span className="font-label-md text-label-md text-primary font-semibold">{msg.name}</span>
                   <span className="font-label-sm text-label-sm text-on-surface-variant">Syllabus-Aligned</span>
@@ -210,7 +211,7 @@ export default function AiTutor() {
                   {msg.breakthrough && (
                     <div className="bg-primary-container text-on-primary rounded p-3 flex flex-col gap-1.5">
                       <div className="flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[18px] text-tertiary-fixed">lightbulb</span>
+                        <Icon name="lightbulb" className="text-[18px] text-tertiary-fixed" />
                         <span className="font-label-md text-label-md font-semibold text-tertiary-fixed">
                           {msg.breakthrough.title}
                         </span>
@@ -224,7 +225,7 @@ export default function AiTutor() {
                   {msg.citation && (
                     <div className="flex items-center justify-between px-2.5 py-1.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
                       <span className="flex items-center gap-1">
-                        <span className="material-symbols-outlined text-[14px] text-secondary">bookmark</span>
+                        <Icon name="bookmark" className="text-[14px] text-secondary" />
                         {msg.citation}
                       </span>
                       <span className="font-semibold text-primary">8 Marks</span>
@@ -240,13 +241,13 @@ export default function AiTutor() {
             <div key={msg.id} className="flex flex-col items-start self-start w-full space-y-1.5">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded bg-primary-container flex items-center justify-center text-on-primary">
-                  <span className="material-symbols-outlined text-[15px]">auto_stories</span>
+                  <Icon name="auto_stories" className="text-[15px]" />
                 </div>
                 <span className="font-label-md text-label-md text-primary font-semibold">{msg.name}</span>
               </div>
               <div className="w-full bg-surface-container-lowest rounded-xl p-4 shadow-sm space-y-2.5 border border-surface-container">
                 <div className="flex items-start gap-2.5">
-                  <span className="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">tips_and_updates</span>
+                  <Icon name="tips_and_updates" className="text-secondary text-[22px] shrink-0 mt-0.5" />
                   <div className="flex flex-col">
                     <h3 className="font-title-md text-title-md text-primary">{msg.title}</h3>
                     <p className="font-body-md text-body-md text-on-surface leading-relaxed mt-1 whitespace-pre-line">
@@ -261,7 +262,7 @@ export default function AiTutor() {
                       className="inline-flex items-center gap-1 text-on-surface-variant hover:text-primary font-label-sm text-label-sm"
                       type="button"
                     >
-                      <span className="material-symbols-outlined text-[16px]">thumb_up</span> Helpful
+                      <Icon name="thumb_up" className="text-[16px]" /> Helpful
                     </button>
                     <button
                       onClick={() => {
@@ -271,7 +272,7 @@ export default function AiTutor() {
                       className="inline-flex items-center gap-1 text-on-surface-variant hover:text-primary font-label-sm text-label-sm"
                       type="button"
                     >
-                      <span className="material-symbols-outlined text-[16px]">content_copy</span> Copy
+                      <Icon name="content_copy" className="text-[16px]" /> Copy
                     </button>
                   </div>
                   <span className="font-label-sm text-label-sm text-on-surface-variant font-medium">{msg.tag}</span>
@@ -346,7 +347,7 @@ export default function AiTutor() {
             className="absolute right-1.5 w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center hover:bg-primary-container active:scale-95 transition-all shadow-sm"
             type="button"
           >
-            <span className="material-symbols-outlined text-[18px]">arrow_upward</span>
+            <Icon name="arrow_upward" className="text-[18px]" />
           </button>
         </div>
         <p className="text-center font-label-sm text-[11px] text-on-surface-variant/80 pb-0.5">

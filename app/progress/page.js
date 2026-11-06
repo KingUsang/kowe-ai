@@ -1,4 +1,5 @@
 'use client';
+import Icon from '@/components/Icon';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -91,7 +92,7 @@ export default function AcademicProgress() {
       <div className="bg-surface-container-lowest p-4 rounded-xl border border-surface-container shadow-sm space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-secondary text-[20px]">warning</span>
+            <Icon name="warning" className="text-secondary text-[20px]" />
             <h3 className="font-title-md text-primary font-semibold text-sm">Flagged Concept Interventions</h3>
           </div>
           <span className="text-xs font-semibold text-secondary">3 Topics</span>
@@ -126,7 +127,7 @@ export default function AcademicProgress() {
       {/* Past Questions Readiness Index */}
       <div className="bg-surface-container-low p-4 rounded-xl border border-surface-container space-y-2">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-[20px] text-primary-container">verified</span>
+          <Icon name="verified" className="text-[20px] text-primary-container" />
           <h3 className="font-title-md text-primary font-semibold text-sm">PCN Licensing Readiness</h3>
         </div>
         <p className="font-body-sm text-xs text-on-surface-variant leading-relaxed">
@@ -137,7 +138,7 @@ export default function AcademicProgress() {
             href="/exam"
             className="w-full bg-primary-container hover:bg-primary text-on-primary py-2.5 rounded-lg text-center font-label-md text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
           >
-            <span className="material-symbols-outlined text-[16px]">timer</span>
+            <Icon name="timer" className="text-[16px]" />
             <span>Launch 40-Question Practice Mock</span>
           </Link>
         </div>

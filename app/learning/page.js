@@ -1,4 +1,5 @@
 'use client';
+import Icon from '@/components/Icon';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -115,7 +116,7 @@ export default function MyLearning() {
                 <div className="flex items-center justify-between text-on-surface-variant font-label-sm text-[12px] pt-0.5">
                   <span>{completedList.length} of {course.totalLessons} lessons completed</span>
                   <span className="flex items-center gap-1 text-primary-container font-semibold">
-                    <span className="material-symbols-outlined text-[14px]">schedule</span>
+                    <Icon name="schedule" className="text-[14px]" />
                     {course.remainingMinutes}m remaining
                   </span>
                 </div>
@@ -164,14 +165,14 @@ export default function MyLearning() {
                       href="/ai-tutor"
                       className="flex-1 bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm py-2 px-3 rounded-lg text-center flex items-center justify-center gap-1.5 transition-colors"
                     >
-                      <span className="material-symbols-outlined text-[16px]">psychology</span>
+                      <Icon name="psychology" className="text-[16px]" />
                       <span>Ask AI Tutor</span>
                     </Link>
                     <Link
                       href="/practice"
                       className="flex-1 bg-primary-container hover:bg-primary text-on-primary font-label-sm text-label-sm py-2 px-3 rounded-lg text-center flex items-center justify-center gap-1.5 transition-colors shadow-xs"
                     >
-                      <span className="material-symbols-outlined text-[16px]">fact_check</span>
+                      <Icon name="fact_check" className="text-[16px]" />
                       <span>Practice Questions</span>
                     </Link>
                   </div>

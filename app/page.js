@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { USER, COURSES, RECOMMENDED_TASKS, MILESTONES, MATERIALS } from '@/lib/mockData';
 import { getStorageItem, setStorageItem } from '@/lib/storage';
+import Icon from '@/components/Icon';
 
 export default function HomeDashboard() {
   const [courses, setCourses] = useState(COURSES);
@@ -32,7 +33,7 @@ export default function HomeDashboard() {
       {/* Toast Notification */}
       {toast && (
         <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-primary text-primary-fixed px-4 py-2 rounded-full shadow-lg font-label-md flex items-center gap-2 animate-bounce text-sm">
-          <span className="material-symbols-outlined text-[18px]">check_circle</span>
+          <Icon name="check_circle" size={18} />
           <span>{toast}</span>
         </div>
       )}
@@ -44,7 +45,7 @@ export default function HomeDashboard() {
             {USER.semester}
           </span>
           <div className="flex items-center gap-1.5 bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant">
-            <span className="material-symbols-outlined text-[15px] text-secondary">local_fire_department</span>
+            <Icon name="local_fire_department" size={15} className="text-secondary" />
             <span className="font-label-sm text-label-sm font-semibold">{USER.rhythmDays}-Day Rhythm</span>
           </div>
         </div>
@@ -96,7 +97,7 @@ export default function HomeDashboard() {
               href="/learning"
               className="w-full bg-primary-container hover:bg-primary text-on-primary py-3 px-4 rounded-lg flex items-center justify-center gap-2 font-label-md text-label-md transition-colors shadow-sm active:translate-y-px"
             >
-              <span className="material-symbols-outlined text-[18px]">play_circle</span>
+              <Icon name="play_circle" size={18} />
               <span>Resume Study (18 mins remaining)</span>
             </Link>
           </div>
@@ -141,11 +142,12 @@ export default function HomeDashboard() {
                 </div>
               </div>
               <div className="flex items-center justify-between pt-1">
-                <span className="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[15px]">
-                    {task.badgeType === 'secondary' ? 'schedule' : 'help_outline'}
-                  </span>{' '}
-                  {task.readTime}
+                <span className="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1.5">
+                  <Icon
+                    name={task.badgeType === 'secondary' ? 'schedule' : 'help_outline'}
+                    size={15}
+                  />
+                  <span>{task.readTime}</span>
                 </span>
                 <div className="flex items-center gap-2">
                   {!isDone && (
@@ -154,7 +156,7 @@ export default function HomeDashboard() {
                       className="p-1 text-on-surface-variant hover:text-primary transition-colors text-xs flex items-center gap-0.5"
                       title="Mark as done"
                     >
-                      <span className="material-symbols-outlined text-[16px]">check</span>
+                      <Icon name="check" size={16} />
                     </button>
                   )}
                   <Link
@@ -166,9 +168,7 @@ export default function HomeDashboard() {
                     }`}
                   >
                     <span>{task.actionText}</span>
-                    <span className="material-symbols-outlined text-[14px]">
-                      {task.highlight ? 'bolt' : 'arrow_forward'}
-                    </span>
+                    <Icon name={task.highlight ? 'bolt' : 'arrow_forward'} size={14} />
                   </Link>
                 </div>
               </div>
@@ -181,7 +181,7 @@ export default function HomeDashboard() {
       <section className="bg-surface-container-low rounded-xl p-4 flex flex-col space-y-3 border border-surface-container/50">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[20px] text-primary-container">analytics</span>
+            <Icon name="analytics" size={20} className="text-primary-container" />
             <h3 className="font-title-md text-title-md text-primary font-semibold">Mastery &amp; Syllabus Index</h3>
           </div>
           <span className="font-label-sm text-label-sm text-on-surface-variant font-semibold">Pharmacy 300L</span>
@@ -205,7 +205,7 @@ export default function HomeDashboard() {
         </div>
         {/* Past Question Breakdown Note */}
         <div className="bg-surface-container-lowest rounded-lg p-3 flex items-start gap-2.5 shadow-xs">
-          <span className="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">bookmark_added</span>
+          <Icon name="bookmark_added" size={18} className="text-secondary mt-0.5" />
           <div className="flex flex-col">
             <span className="font-label-sm text-label-sm font-semibold text-primary">Benchmarked Against UNILAG &amp; UI Past Questions</span>
             <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
@@ -281,9 +281,11 @@ export default function HomeDashboard() {
                   </span>
                 </div>
               </div>
-              <span className={`material-symbols-outlined text-[20px] shrink-0 ${m.type === 'exam' ? 'text-secondary' : 'text-on-surface-variant'}`}>
-                {m.icon}
-              </span>
+              <Icon
+                name={m.icon}
+                size={20}
+                className={m.type === 'exam' ? 'text-secondary' : 'text-on-surface-variant'}
+              />
             </div>
           ))}
         </div>
@@ -302,7 +304,7 @@ export default function HomeDashboard() {
           >
             <div className="flex items-center gap-3 min-w-0">
               <div className="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container shrink-0">
-                <span className="material-symbols-outlined text-[20px]">{mat.icon}</span>
+                <Icon name={mat.icon} size={20} />
               </div>
               <div className="flex flex-col min-w-0">
                 <span className="font-title-md text-title-md text-primary text-[13px] truncate">
@@ -318,9 +320,10 @@ export default function HomeDashboard() {
               aria-label="Open document"
               className="p-1.5 text-on-surface-variant hover:text-primary transition-colors"
             >
-              <span className="material-symbols-outlined text-[18px]">
-                {mat.format === 'Audio' ? 'play_arrow' : 'download_for_offline'}
-              </span>
+              <Icon
+                name={mat.format === 'Audio' ? 'play_arrow' : 'download_for_offline'}
+                size={18}
+              />
             </Link>
           </div>
         ))}
