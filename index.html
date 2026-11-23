@@ -12,8 +12,8 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%230d3b30'/><text x='13' y='46' font-family='Georgia,serif' font-size='40' fill='%23f4fbf7'>k</text><circle cx='49' cy='43' r='5' fill='%23fe8c58'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -56,31 +56,28 @@
           <div class="app">
             <div class="app-bar">
               <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="app-url">kowe · your course</span>
+              <span class="app-url">kowe · today</span>
+              <span class="when">Exam in 5 weeks</span>
             </div>
-            <div class="app-head">
+            <div class="course-row">
               <div>
                 <span class="code">PCH 301</span>
                 <strong>Pharmaceutical Chemistry</strong>
+                <p class="app-kicker">Lesson 4 of 7 · built from your notes</p>
               </div>
-              <span class="when">Exam in 5 weeks</span>
+              <div class="mini-ring" style="--p:78"><b>78<small>%</small></b><span>Ready</span></div>
             </div>
-            <p class="app-kicker">Today’s plan, built from your notes</p>
+            <div class="meter" aria-hidden="true"><i style="width:62%"></i></div>
             <ol class="plan-list">
-              <li><span>01</span> SAR of penicillins <em>Lesson</em></li>
-              <li><span>02</span> Beta-lactam mechanisms <em>Explain</em></li>
-              <li class="hot"><span>03</span> 2022 past paper, Q4 <em>Practice</em></li>
+              <li><span class="tick done"></span><div><b>SAR of penicillins</b><small>Lesson · 18 min</small></div></li>
+              <li><span class="tick"></span><div><b>Beta-lactam mechanisms</b><small>Ask Kowe</small></div></li>
+              <li class="hot"><span class="tick"></span><div><b>2022 past paper, Q4</b><small>Practice · 12 marks</small></div></li>
             </ol>
             <div class="know-mini">
-              <div><b>Mastered</b><i style="--w:84%"></i></div>
-              <div><b>Needs work</b><i class="mid" style="--w:46%"></i></div>
-              <div><b>Missing</b><i class="low" style="--w:18%"></i></div>
+              <div><b>84%</b><small>Mastered</small><i style="--w:84%"></i></div>
+              <div><b>46%</b><small>Needs work</small><i class="mid" style="--w:46%"></i></div>
+              <div><b>18%</b><small>Missing</small><i class="low" style="--w:18%"></i></div>
             </div>
-          </div>
-          <div class="float-note">
-            <span>Readiness</span>
-            <strong>78%</strong>
-            <small>Up from last week</small>
           </div>
         </div>
       </div>
@@ -93,16 +90,19 @@
           <h2>Bring everything you study from. Let Kowe put it all together.</h2>
           <p>Connect your Google Drive or upload your syllabus, lecture notes, slides, textbooks and past questions. Kowe organises your course materials and uses them to understand what you're expected to learn.</p>
         </div>
-        <div class="visual" aria-hidden="true">
-          <div class="panel materials">
-            <div class="file drive"><i></i><div><b>Google Drive</b><small>Connected · 4 folders</small></div></div>
-            <div class="file"><i class="pdf"></i><div><b>Course syllabus.pdf</b><small>Outline · 12 pages</small></div></div>
-            <div class="file"><i class="slides"></i><div><b>Lecture 4 — slides</b><small>Mechanisms</small></div></div>
-            <div class="file"><i class="book"></i><div><b>Textbook, ch. 1–6</b><small>Core reading</small></div></div>
-            <div class="file"><i class="pdf"></i><div><b>Past questions 2021–2025</b><small>Exam format</small></div></div>
+        <div class="visual">
+          <div class="panel materials" data-materials>
+            <div class="file-col" role="listbox" aria-label="Course materials">
+              <button type="button" class="file drive on" role="option" aria-selected="true" data-file="drive"><i></i><div><b>Google Drive</b><small>Connected · 4 folders</small></div></button>
+              <button type="button" class="file" role="option" aria-selected="false" data-file="syllabus"><i class="pdf"></i><div><b>Course syllabus.pdf</b><small>Outline · 12 pages</small></div></button>
+              <button type="button" class="file" role="option" aria-selected="false" data-file="slides"><i class="slides"></i><div><b>Lecture 4 — slides</b><small>Mechanisms</small></div></button>
+              <button type="button" class="file" role="option" aria-selected="false" data-file="book"><i class="book"></i><div><b>Textbook, ch. 1–6</b><small>Core reading</small></div></button>
+              <button type="button" class="file" role="option" aria-selected="false" data-file="past"><i class="pdf"></i><div><b>Past questions 2021–2025</b><small>Exam format</small></div></button>
+            </div>
             <div class="plan-out">
-              <span>Your learning plan</span>
-              <strong>6 topics · 42 concepts</strong>
+              <span>Kowe pulled from this</span>
+              <strong data-extract-title>6 topics · 42 concepts</strong>
+              <p data-extract-body>Your Drive folders become one plan: outcomes, readings and the exam in 5 weeks.</p>
             </div>
           </div>
         </div>
@@ -154,23 +154,83 @@
           <h3>Stuck on a concept? Ask Kowe.</h3>
           <p>Your personal AI tutor is there whenever you need help. Ask questions about difficult concepts, request another explanation or get help understanding something you just couldn't figure out.</p>
         </div>
-        <div class="visual" aria-hidden="true">
-          <div class="panel tutor">
-            <div class="chips">
-              <span>Text</span><span class="on">Visual</span><span>Diagrams</span><span>Audio</span><span>Video</span>
+        <div class="visual">
+          <div class="studio" data-formats>
+            <div class="studio-top">
+              <div>
+                <span class="code">Ask Kowe</span>
+                <strong>Why the beta-lactam ring opens</strong>
+              </div>
+              <div class="chips" role="tablist" aria-label="Lesson format">
+                <button type="button" role="tab" id="fmt-text" class="on" data-format="text" aria-selected="true" aria-controls="panel-text">Text</button>
+                <button type="button" role="tab" id="fmt-visual" data-format="visual" aria-selected="false" aria-controls="panel-visual">Visual</button>
+                <button type="button" role="tab" id="fmt-diagrams" data-format="diagrams" aria-selected="false" aria-controls="panel-diagrams">Diagrams</button>
+                <button type="button" role="tab" id="fmt-audio" data-format="audio" aria-selected="false" aria-controls="panel-audio">Audio</button>
+                <button type="button" role="tab" id="fmt-video" data-format="video" aria-selected="false" aria-controls="panel-video">Video</button>
+              </div>
             </div>
-            <div class="bubble you">Why does the beta-lactam ring break so easily? I keep mixing up the strain with the leaving group.</div>
-            <div class="bubble kowe">
-              <b>kowe.</b>
-              <svg viewBox="0 0 220 72" class="sketch" aria-hidden="true">
-                <rect x="18" y="16" width="46" height="40" rx="6" />
-                <path d="M64 36 H108" />
-                <circle cx="128" cy="36" r="16" />
-                <path d="M144 36 H196" />
-                <text x="28" y="40">ring</text>
-                <text x="168" y="32">open</text>
-              </svg>
-              The ring is already pulled tight. A small push — the nucleophile — and it springs open. Want the same idea as a short animation?
+            <p class="ask">Why does the beta-lactam ring break so easily? I keep mixing up the strain with the leaving group.</p>
+
+            <div class="fmt" id="panel-text" role="tabpanel" aria-labelledby="fmt-text" data-panel="text">
+              <p>The ring has only four atoms, so the bonds are bent away from the shape they want. That stored strain is why a nucleophile can open it.</p>
+              <p>The leaving group matters later, when the bond has already broken. Strain explains <em>why</em> it opens. The leaving group explains <em>what leaves</em> afterwards.</p>
+            </div>
+
+            <div class="fmt" id="panel-visual" role="tabpanel" aria-labelledby="fmt-visual" data-panel="visual" hidden>
+              <div class="compare">
+                <figure>
+                  <svg viewBox="0 0 120 120" aria-hidden="true">
+                    <rect x="34" y="28" width="52" height="52" rx="8" />
+                    <circle cx="60" cy="54" r="3" />
+                    <path d="M60 28 V16 M86 54 H102 M60 80 V96 M34 54 H18" />
+                  </svg>
+                  <figcaption>Closed<small>Bonds pulled tight</small></figcaption>
+                </figure>
+                <span class="vs">opens into</span>
+                <figure>
+                  <svg viewBox="0 0 120 120" aria-hidden="true">
+                    <path d="M24 70 C40 70 46 40 62 40 S84 70 100 70" />
+                    <circle cx="62" cy="40" r="3" />
+                    <path d="M100 70 L112 58 M100 70 L112 82" />
+                  </svg>
+                  <figcaption>Open<small>Strain released</small></figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="fmt" id="panel-diagrams" role="tabpanel" aria-labelledby="fmt-diagrams" data-panel="diagrams" hidden>
+              <div class="steps" data-steps>
+                <button type="button" class="on" data-step="1">1 · Approach</button>
+                <button type="button" data-step="2">2 · Open</button>
+                <button type="button" data-step="3">3 · Leave</button>
+              </div>
+              <ol class="step-copy">
+                <li data-step-copy="1">A nucleophile moves toward the carbonyl carbon on the ring.</li>
+                <li data-step-copy="2" hidden>The four-membered ring springs open and the strain drops.</li>
+                <li data-step-copy="3" hidden>The leaving group departs. This is a separate step from the strain.</li>
+              </ol>
+            </div>
+
+            <div class="fmt" id="panel-audio" role="tabpanel" aria-labelledby="fmt-audio" data-panel="audio" hidden>
+              <div class="player" data-player>
+                <button type="button" class="play" aria-pressed="false">Play</button>
+                <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <span class="time">0:42</span>
+              </div>
+              <p class="transcript">“The ring is already pulled tight. A small push, and it springs open. The leaving group is what happens next, not the reason it breaks.”</p>
+            </div>
+
+            <div class="fmt" id="panel-video" role="tabpanel" aria-labelledby="fmt-video" data-panel="video" hidden>
+              <button type="button" class="screen" data-video aria-pressed="false">
+                <span class="scene">
+                  <svg viewBox="0 0 220 110" aria-hidden="true">
+                    <g class="ring-closed"><rect x="78" y="28" width="52" height="52" rx="8" /><circle cx="104" cy="54" r="3" /></g>
+                    <g class="ring-open"><path d="M36 72 C70 72 84 36 110 36 S150 72 186 72" /><circle cx="110" cy="36" r="3" /></g>
+                  </svg>
+                  <span class="play-badge">Play</span>
+                </span>
+                <span class="transport"><i></i><span>0:18 · Ring strain</span></span>
+              </button>
             </div>
           </div>
         </div>
@@ -293,6 +353,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

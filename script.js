@@ -97,3 +97,94 @@ if ("IntersectionObserver" in window) {
 } else {
   revealEls.forEach((el) => el.classList.add("in"));
 }
+const MATERIAL_NOTES = {
+  drive: ["6 topics · 42 concepts", "Your Drive folders become one plan: outcomes, readings and the exam in 5 weeks."],
+  syllabus: ["12 outcomes", "The syllabus sets what you are expected to learn, so the plan follows the course, not a generic outline."],
+  slides: ["Lecture 4 · mechanisms", "These slides put beta-lactam cleavage and ring strain on this week’s plan."],
+  book: ["Chapters 1–6", "The textbook fills the prerequisite gaps the lectures assume you already have."],
+  past: ["2021–2025 papers", "Past questions set the format: how marks are awarded, and which patterns repeat."],
+};
+
+const materials = document.querySelector("[data-materials]");
+if (materials) {
+  const title = materials.querySelector("[data-extract-title]");
+  const body = materials.querySelector("[data-extract-body]");
+  materials.querySelectorAll("[data-file]").forEach((button) => {
+    button.addEventListener("click", () => {
+      materials.querySelectorAll("[data-file]").forEach((item) => {
+        const on = item === button;
+        item.classList.toggle("on", on);
+        item.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      const note = MATERIAL_NOTES[button.dataset.file];
+      if (note) {
+        title.textContent = note[0];
+        body.textContent = note[1];
+      }
+    });
+  });
+}
+
+const studio = document.querySelector("[data-formats]");
+if (studio) {
+  const tabs = [...studio.querySelectorAll("[data-format]")];
+  const panels = [...studio.querySelectorAll("[data-panel]")];
+
+  function selectFormat(id) {
+    tabs.forEach((tab) => {
+      const on = tab.dataset.format === id;
+      tab.classList.toggle("on", on);
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+      tab.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach((panel) => {
+      panel.hidden = panel.dataset.panel !== id;
+    });
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.tabIndex = index === 0 ? 0 : -1;
+    tab.addEventListener("click", () => selectFormat(tab.dataset.format));
+    tab.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+      event.preventDefault();
+      const direction = event.key === "ArrowRight" ? 1 : -1;
+      const next = tabs[(index + direction + tabs.length) % tabs.length];
+      next.focus();
+      selectFormat(next.dataset.format);
+    });
+  });
+
+  const player = studio.querySelector("[data-player]");
+  const play = player && player.querySelector(".play");
+  if (play) {
+    play.addEventListener("click", () => {
+      const on = player.classList.toggle("playing");
+      play.setAttribute("aria-pressed", on ? "true" : "false");
+      play.textContent = on ? "Pause" : "Play";
+    });
+  }
+
+  const video = studio.querySelector("[data-video]");
+  if (video) {
+    video.addEventListener("click", () => {
+      const on = video.classList.toggle("playing");
+      video.setAttribute("aria-pressed", on ? "true" : "false");
+      const badge = video.querySelector(".play-badge");
+      if (badge) badge.textContent = on ? "Pause" : "Play";
+    });
+  }
+
+  const steps = studio.querySelector("[data-steps]");
+  if (steps) {
+    steps.querySelectorAll("[data-step]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const id = button.dataset.step;
+        steps.querySelectorAll("[data-step]").forEach((item) => item.classList.toggle("on", item === button));
+        studio.querySelectorAll("[data-step-copy]").forEach((line) => {
+          line.hidden = line.dataset.stepCopy !== id;
+        });
+      });
+    });
+  }
+}
