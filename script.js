@@ -132,6 +132,10 @@ if (materials) {
       if (note) {
         title.textContent = note[0];
         body.textContent = note[1];
+        const out = materials.querySelector(".plan-out");
+        out.classList.remove("swap");
+        void out.offsetWidth;
+        out.classList.add("swap");
       }
     });
   });
@@ -238,4 +242,92 @@ if (studio) {
       });
     });
   }
+}
+
+/* Motion: scroll progress, header state, reveals, and phone screens that build in */
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const progressBar = document.createElement("div");
+progressBar.className = "scroll-progress";
+progressBar.setAttribute("aria-hidden", "true");
+document.body.prepend(progressBar);
+
+const siteHeader = document.querySelector(".site-header");
+let scrollTicking = false;
+function onScroll() {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(() => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ")";
+    siteHeader.classList.toggle("scrolled", window.scrollY > 8);
+    scrollTicking = false;
+  });
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+
+function countUp(el) {
+  const match = el.textContent.match(/^(\d+)(.*)$/);
+  if (!match) return;
+  const end = Number(match[1]);
+  const rest = match[2];
+  const duration = 1100;
+  const start = performance.now();
+  el.textContent = "0" + rest;
+  function step(now) {
+    const t = Math.min(1, (now - start) / duration);
+    el.textContent = Math.round(end * (1 - Math.pow(1 - t, 3))) + rest;
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+document.querySelectorAll(".phone-body").forEach((body) => {
+  [...body.children].forEach((child, index) => child.style.setProperty("--i", index));
+});
+
+function showPhone(phone) {
+  phone.classList.add("in");
+  if (reduceMotion) return;
+  phone.querySelectorAll(".kpi b, .meter-row b").forEach(countUp);
+  const stage = phone.closest(".stage");
+  if (stage && !stage.dataset.counted) {
+    stage.dataset.counted = "1";
+    stage.querySelectorAll(".float b").forEach(countUp);
+  }
+}
+
+if (!reduceMotion && "IntersectionObserver" in window) {
+  document.querySelectorAll(".copy, .visual, .section-head, .cta-panel").forEach((el) => el.classList.add("reveal"));
+  document.querySelectorAll(".tile").forEach((el, index) => {
+    el.classList.add("reveal");
+    el.style.setProperty("--d", index * 90 + "ms");
+  });
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("in");
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+  const phoneObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        showPhone(entry.target);
+        phoneObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.2 }
+  );
+  document.querySelectorAll(".phone").forEach((phone) => phoneObserver.observe(phone));
+} else {
+  document.querySelectorAll(".phone").forEach((phone) => phone.classList.add("in"));
 }
