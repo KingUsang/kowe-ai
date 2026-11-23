@@ -78,6 +78,36 @@ document.querySelectorAll(".waitlist-form").forEach((form) => {
   });
 });
 
+/* Phone chrome: status bar and bottom nav are added to every phone mockup */
+const NAV_ITEMS = [
+  ["home", "Home", "i-house"],
+  ["learn", "Learn", "i-book-open"],
+  ["tutor", "Tutor", "i-brain"],
+  ["files", "Files", "i-folder-open"],
+  ["practice", "Practice", "i-clipboard-check"],
+  ["progress", "Progress", "i-chart-column"],
+];
+
+const icon = (id) => '<svg class="ic" aria-hidden="true"><use href="#' + id + '"/></svg>';
+
+document.querySelectorAll(".phone").forEach((phone) => {
+  const active = phone.dataset.screen;
+
+  const status = document.createElement("div");
+  status.className = "status";
+  status.setAttribute("aria-hidden", "true");
+  status.innerHTML = "<span>9:41</span><span class=\"sys\">" + icon("i-signal") + icon("i-wifi") + icon("i-battery-full") + "</span>";
+  phone.prepend(status);
+
+  const nav = document.createElement("nav");
+  nav.className = "phone-nav";
+  nav.setAttribute("aria-hidden", "true");
+  nav.innerHTML = NAV_ITEMS.map(
+    ([key, label, id]) => '<span class="' + (key === active ? "on" : "") + '"><b>' + icon(id) + "</b>" + label + "</span>"
+  ).join("");
+  phone.append(nav);
+});
+
 /* Materials: choose a file to see what Kowe takes from it */
 const MATERIAL_NOTES = {
   drive: ["6 topics · 42 concepts", "Your Drive folders become one plan: outcomes, readings and the exam in 5 weeks."],
