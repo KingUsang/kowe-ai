@@ -79,7 +79,8 @@ a { color: inherit; }
 .btn:hover { background: var(--coral); color: var(--coral-ink); }
 .btn:focus-visible, .header-cta:focus-visible, .field input:focus-visible { outline: 3px solid var(--coral); outline-offset: 2px; }
 .btn[disabled] { opacity: 0.65; cursor: progress; }
-.form-status { min-height: 1.4em; margin: 8px 0 0; font-size: 0.92rem; }
+.form-status { min-height: 0; margin: 8px 0 0; font-size: 0.92rem; }
+.form-status:empty { margin: 0; }
 .form-status.error { color: var(--gap); }
 .form-status.success { color: var(--ok); font-weight: 600; }
 .waitlist-form.done .field { display: none; }
@@ -253,24 +254,37 @@ a { color: inherit; }
 .footer-inner { display: flex; justify-content: space-between; gap: 12px; align-items: center; border-top: 1px solid var(--line); padding-top: 22px; }
 
 @media (max-width: 960px) {
-  .hero-grid, .split { grid-template-columns: 1fr; gap: 28px; }
+  .hero-grid, .split { grid-template-columns: 1fr; gap: 20px; }
   .split.flip .copy { order: 0; }
   .copy { max-width: none; }
-  .grid-4 { grid-template-columns: 1fr 1fr; }
-  .stage { min-height: 0; }
-  .float-note { display: none; }
-  .hero { padding-bottom: 96px; }
+  .copy p:last-child { margin-bottom: 0; }
+  .grid-4 { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .feature { padding: 36px 0; }
+  .hero { padding: 4px 0 28px; }
+  .section-head { margin-bottom: 14px; }
+  .final-cta { padding: 4px 0 28px; }
+  .cta-panel { padding: 28px 18px; }
+  h2 { font-size: 1.7rem; }
+  .app-bar { display: none; }
+  .tile { min-height: 0; padding: 16px; }
+  .tile h3 { margin-top: 8px; font-size: 1.15rem; }
 }
 @media (max-width: 640px) {
   .container { width: min(1160px, calc(100% - 28px)); }
+  .header-inner { height: 60px; }
   .header-cta { display: none; }
   .field { flex-direction: column; }
   .btn { width: 100%; }
   .grid-4 { grid-template-columns: 1fr; }
-  .tile { min-height: 0; }
+  .feature { padding: 28px 0; }
+  .hero { padding: 0 0 20px; }
+  h1 { font-size: 2.05rem; }
   .plan-out { align-items: stretch; }
   .compare { grid-template-columns: 1fr; }
+  .compare svg { height: 84px; }
   .vs { text-align: center; }
+  .know-mini { gap: 6px; }
+  .site-footer { padding-bottom: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
