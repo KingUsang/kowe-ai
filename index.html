@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kowe — Your personal AI learning system</title>
+  <title>Kowe — Your personal AI companion</title>
   <meta name="description" content="Kowe understands your course materials, discovers what you already know and what needs work, then builds a personalised learning experience to help you master your courses and prepare for your exams." />
-  <meta property="og:title" content="Kowe — Your personal AI learning system" />
+  <meta property="og:title" content="Kowe — Your personal AI companion" />
   <meta property="og:description" content="Learn what you're missing. Practise for the exam ahead. Join the waitlist for free access at launch." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0d3b30" />
@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -21,18 +21,16 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="wordmark" aria-label="Kowe home">kowe<span>.</span></a>
-      <div class="header-actions">
-        <span class="pill">Coming soon</span>
-        <a class="header-cta" href="#join">Get free access</a>
-      </div>
+      <a class="header-cta" href="#join">Get free access</a>
     </div>
   </header>
 
   <main id="main">
+    <!-- Hero -->
     <section class="hero" id="top">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Your personal AI learning system</p>
+          <p class="eyebrow">Your personal AI companion</p>
           <h1>Learn what you're missing. <em>Practise for the exam ahead.</em></h1>
           <p class="lede">Kowe understands your course materials, discovers what you already know and what needs work, then builds a personalised learning experience to help you master your courses and prepare for your exams.</p>
 
@@ -52,8 +50,27 @@
           </ul>
         </div>
 
-        <div class="stage">
-          <div class="phone" aria-hidden="true">
+        <div class="showcase tone-mint hero-show" aria-hidden="true">
+          <div class="phone back">
+            <header class="phone-top">
+              <span class="kmark">K</span>
+              <div class="phone-id"><b>KOWE AI <em>Progress</em></b><small><i></i>UNILAG · Pharmacy 300L</small></div>
+            </header>
+            <div class="phone-body">
+              <p class="screen-kicker">Analytics</p>
+              <h3 class="dash-hi">Exam readiness</h3>
+              <div class="kpis">
+                <div><b>78%</b><span>Ready</span></div>
+                <div><b>24/28</b><span>Modules</span></div>
+                <div><b>3</b><span>Flagged</span></div>
+              </div>
+              <div class="krow"><div class="kmeta"><b>SAR of penicillins</b><small>Lecture 4</small></div><span class="tag warn">Needs work</span><div class="bar"><i class="mid" style="--w:48%"></i></div></div>
+              <div class="krow"><div class="kmeta"><b>Acid–base equilibria</b><small>Prerequisite</small></div><span class="tag ok">Mastered</span><div class="bar"><i style="--w:92%"></i></div></div>
+            </div>
+            <nav class="phone-nav"><span>Home</span><span>Learn</span><span>Tutor</span><span>Files</span><span>Practice</span><span class="on">Progress</span></nav>
+          </div>
+
+          <div class="phone front">
             <header class="phone-top">
               <span class="kmark">K</span>
               <div class="phone-id"><b>KOWE AI <em>Home</em></b><small><i></i>UNILAG · Pharmacy 300L</small></div>
@@ -61,17 +78,16 @@
             <div class="phone-body">
               <div class="dash-meta"><span>First semester · Week 8</span><span class="rhythm">14-day rhythm</span></div>
               <h3 class="dash-hi">Good morning, Folasade</h3>
-              <p class="dash-sub">College of Medicine, Idi-Araba</p>
               <article class="screen-card">
                 <div class="focus-bar"><span class="code">PCH 301</span><span class="soft">Pharm Chem II</span><span class="lesson">Lesson 4 of 7</span></div>
                 <h4>Structure–activity of penicillins</h4>
-                <p>Ring strain, C-6 substitution, and beta-lactamase pathways.</p>
+                <p>Ring strain, C-6 substitution and beta-lactamase pathways.</p>
                 <div class="meter-row"><span>Module retention</span><b>62%</b></div>
                 <div class="meter"><i style="width:62%"></i></div>
                 <div class="resume">Resume study · 18 min</div>
               </article>
               <div class="screen-label"><b>Recommended next</b><span>1 critical</span></div>
-              <article class="screen-card task">
+              <article class="screen-card">
                 <div><span class="code soft">PCH 301</span> <span class="kind">Past paper</span></div>
                 <p>2022 paper, question 4</p>
                 <div class="task-foot"><span>12 marks</span><span class="pill-btn">Practice</span></div>
@@ -79,18 +95,21 @@
             </div>
             <nav class="phone-nav"><span class="on">Home</span><span>Learn</span><span>Tutor</span><span>Files</span><span>Practice</span><span>Progress</span></nav>
           </div>
+
+          <div class="float float-a"><small>Exam readiness</small><b>78%</b></div>
+          <div class="float float-b"><small>Review due</small><span>Beta-lactam ring · Day 21</span></div>
         </div>
       </div>
     </section>
 
+    <!-- Materials -->
     <section class="feature">
       <div class="container split">
         <div class="copy">
-          <p class="eyebrow"><span>01</span> Your materials. One personalised learning plan.</p>
           <h2>Bring everything you study from. Let Kowe put it all together.</h2>
           <p>Connect your Google Drive or upload your syllabus, lecture notes, slides, textbooks and past questions. Kowe organises your course materials and uses them to understand what you're expected to learn.</p>
         </div>
-        <div class="visual">
+        <div class="showcase tone-sand">
           <div class="phone" data-materials>
             <header class="phone-top">
               <span class="kmark">K</span>
@@ -119,16 +138,16 @@
       </div>
     </section>
 
+    <!-- Knowledge check -->
     <section class="feature tint">
       <div class="container split flip">
         <div class="copy">
-          <p class="eyebrow"><span>02</span> Know where you stand before you start.</p>
           <h2>You don't need another study plan that assumes you know nothing.</h2>
           <p>Kowe starts by assessing your existing knowledge. It identifies what you've mastered, what you've forgotten and the prerequisite concepts you may be missing.</p>
           <p>Your study plan is then built around your actual knowledge, course requirements and exam goals.</p>
         </div>
-        <div class="visual">
-          <div class="phone" aria-hidden="true">
+        <div class="showcase tone-sky" aria-hidden="true">
+          <div class="phone">
             <header class="phone-top">
               <span class="kmark">K</span>
               <div class="phone-id"><b>KOWE AI <em>Progress</em></b><small><i></i>UNILAG · Pharmacy 300L</small></div>
@@ -152,99 +171,121 @@
       </div>
     </section>
 
+    <!-- Tutor and formats -->
     <section class="feature">
       <div class="container split">
         <div class="copy">
-          <p class="eyebrow"><span>03</span> Teaching that works around you.</p>
           <h2>Your learning experience should adapt as you do.</h2>
           <p>Kowe learns which teaching approaches and formats work well for you, adapting your lessons through text, visual explanations, diagrams, audio and video.</p>
           <h3>Stuck on a concept? Ask Kowe.</h3>
           <p>Your personal AI tutor is there whenever you need help. Ask questions about difficult concepts, request another explanation or get help understanding something you just couldn't figure out.</p>
         </div>
-        <div class="visual">
+        <div class="showcase tone-mint">
           <div class="phone">
             <header class="phone-top">
               <span class="kmark">K</span>
               <div class="phone-id"><b>KOWE AI <em>AI Tutor</em></b><small><i></i>PCH 301 · Week 4.2</small></div>
             </header>
-            <div class="phone-body studio" data-formats>
-            <div class="studio-top">
-              <div>
-                <span class="code">Ask Kowe</span>
-                <strong>Why the beta-lactam ring opens</strong>
+            <div class="phone-body" data-formats>
+              <div class="studio-top">
+                <div>
+                  <span class="code">Ask Kowe</span>
+                  <strong>Why the beta-lactam ring opens</strong>
+                </div>
+                <div class="chips" role="tablist" aria-label="Lesson format">
+                  <button type="button" role="tab" id="fmt-text" class="on" data-format="text" aria-selected="true" aria-controls="panel-text">Text</button>
+                  <button type="button" role="tab" id="fmt-visual" data-format="visual" aria-selected="false" aria-controls="panel-visual">Visual</button>
+                  <button type="button" role="tab" id="fmt-diagrams" data-format="diagrams" aria-selected="false" aria-controls="panel-diagrams">Diagrams</button>
+                  <button type="button" role="tab" id="fmt-audio" data-format="audio" aria-selected="false" aria-controls="panel-audio">Audio</button>
+                  <button type="button" role="tab" id="fmt-video" data-format="video" aria-selected="false" aria-controls="panel-video">Video</button>
+                </div>
               </div>
-              <div class="chips" role="tablist" aria-label="Lesson format">
-                <button type="button" role="tab" id="fmt-text" class="on" data-format="text" aria-selected="true" aria-controls="panel-text">Text</button>
-                <button type="button" role="tab" id="fmt-visual" data-format="visual" aria-selected="false" aria-controls="panel-visual">Visual</button>
-                <button type="button" role="tab" id="fmt-diagrams" data-format="diagrams" aria-selected="false" aria-controls="panel-diagrams">Diagrams</button>
-                <button type="button" role="tab" id="fmt-audio" data-format="audio" aria-selected="false" aria-controls="panel-audio">Audio</button>
-                <button type="button" role="tab" id="fmt-video" data-format="video" aria-selected="false" aria-controls="panel-video">Video</button>
+              <p class="ask">Why does the beta-lactam ring break so easily? I keep mixing up the strain with the leaving group.</p>
+
+              <div class="fmt" id="panel-text" role="tabpanel" aria-labelledby="fmt-text" data-panel="text">
+                <p>The ring has only four atoms, so the bonds are bent away from the shape they want. That stored strain is why a nucleophile can open it.</p>
+                <p>The leaving group matters later, when the bond has already broken. Strain explains <em>why</em> it opens. The leaving group explains <em>what leaves</em> afterwards.</p>
               </div>
-            </div>
-            <p class="ask">Why does the beta-lactam ring break so easily? I keep mixing up the strain with the leaving group.</p>
 
-            <div class="fmt" id="panel-text" role="tabpanel" aria-labelledby="fmt-text" data-panel="text">
-              <p>The ring has only four atoms, so the bonds are bent away from the shape they want. That stored strain is why a nucleophile can open it.</p>
-              <p>The leaving group matters later, when the bond has already broken. Strain explains <em>why</em> it opens. The leaving group explains <em>what leaves</em> afterwards.</p>
-            </div>
-
-            <div class="fmt" id="panel-visual" role="tabpanel" aria-labelledby="fmt-visual" data-panel="visual" hidden>
-              <div class="compare">
-                <figure>
-                  <svg viewBox="0 0 120 120" aria-hidden="true">
-                    <rect x="34" y="28" width="52" height="52" rx="8" />
-                    <circle cx="60" cy="54" r="3" />
-                    <path d="M60 28 V16 M86 54 H102 M60 80 V96 M34 54 H18" />
-                  </svg>
-                  <figcaption>Closed<small>Bonds pulled tight</small></figcaption>
-                </figure>
-                <span class="vs">opens into</span>
-                <figure>
-                  <svg viewBox="0 0 120 120" aria-hidden="true">
-                    <path d="M24 70 C40 70 46 40 62 40 S84 70 100 70" />
-                    <circle cx="62" cy="40" r="3" />
-                    <path d="M100 70 L112 58 M100 70 L112 82" />
-                  </svg>
-                  <figcaption>Open<small>Strain released</small></figcaption>
-                </figure>
+              <div class="fmt" id="panel-visual" role="tabpanel" aria-labelledby="fmt-visual" data-panel="visual" hidden>
+                <div class="compare">
+                  <figure>
+                    <svg viewBox="0 0 120 120" aria-hidden="true">
+                      <rect x="34" y="28" width="52" height="52" rx="8" />
+                      <circle cx="60" cy="54" r="3" />
+                      <path d="M60 28 V16 M86 54 H102 M60 80 V96 M34 54 H18" />
+                    </svg>
+                    <figcaption>Closed<small>Bonds pulled tight</small></figcaption>
+                  </figure>
+                  <span class="vs" aria-hidden="true">→</span>
+                  <figure>
+                    <svg viewBox="0 0 120 120" aria-hidden="true">
+                      <path d="M24 70 C40 70 46 40 62 40 S84 70 100 70" />
+                      <circle cx="62" cy="40" r="3" />
+                      <path d="M100 70 L112 58 M100 70 L112 82" />
+                    </svg>
+                    <figcaption>Open<small>Strain released</small></figcaption>
+                  </figure>
+                </div>
               </div>
-            </div>
 
-            <div class="fmt" id="panel-diagrams" role="tabpanel" aria-labelledby="fmt-diagrams" data-panel="diagrams" hidden>
-              <div class="steps" data-steps>
-                <button type="button" class="on" data-step="1">1 · Approach</button>
-                <button type="button" data-step="2">2 · Open</button>
-                <button type="button" data-step="3">3 · Leave</button>
+              <div class="fmt" id="panel-diagrams" role="tabpanel" aria-labelledby="fmt-diagrams" data-panel="diagrams" hidden>
+                <svg class="diagram" data-diagram data-active="1" viewBox="0 0 260 56" aria-hidden="true">
+                  <g class="n n1"><rect x="1" y="10" width="76" height="36" rx="9" /><text x="39" y="32">Nucleophile</text></g>
+                  <path class="arr" d="M80 28 H89 M85 24 L89 28 L85 32" />
+                  <g class="n n2"><rect x="92" y="10" width="76" height="36" rx="9" /><text x="130" y="32">Strained ring</text></g>
+                  <path class="arr" d="M171 28 H180 M176 24 L180 28 L176 32" />
+                  <g class="n n3"><rect x="183" y="10" width="76" height="36" rx="9" /><text x="221" y="32">Open ring</text></g>
+                </svg>
+                <div class="steps" data-steps>
+                  <button type="button" class="on" data-step="1">1 · Approach</button>
+                  <button type="button" data-step="2">2 · Open</button>
+                  <button type="button" data-step="3">3 · Leave</button>
+                </div>
+                <ol class="step-copy">
+                  <li data-step-copy="1">A nucleophile moves toward the carbonyl carbon on the ring.</li>
+                  <li data-step-copy="2" hidden>The four-membered ring springs open and the strain drops.</li>
+                  <li data-step-copy="3" hidden>The leaving group departs. This is a separate step from the strain.</li>
+                </ol>
               </div>
-              <ol class="step-copy">
-                <li data-step-copy="1">A nucleophile moves toward the carbonyl carbon on the ring.</li>
-                <li data-step-copy="2" hidden>The four-membered ring springs open and the strain drops.</li>
-                <li data-step-copy="3" hidden>The leaving group departs. This is a separate step from the strain.</li>
-              </ol>
-            </div>
 
-            <div class="fmt" id="panel-audio" role="tabpanel" aria-labelledby="fmt-audio" data-panel="audio" hidden>
-              <div class="player" data-player>
-                <button type="button" class="play" aria-pressed="false">Play</button>
-                <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                <span class="time">0:42</span>
+              <div class="fmt" id="panel-audio" role="tabpanel" aria-labelledby="fmt-audio" data-panel="audio" hidden>
+                <div class="player" data-media data-total="42" data-label="audio">
+                  <button type="button" class="icon-btn" data-toggle aria-label="Play audio" aria-pressed="false">
+                    <svg class="ic i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" /></svg>
+                    <svg class="ic i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" /></svg>
+                  </button>
+                  <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <span class="vtime" data-time>0:00 / 0:42</span>
+                  <svg class="ic dim" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" /><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+                  <span class="scrub"><i data-bar></i></span>
+                </div>
+                <p class="transcript">“The ring is already pulled tight. A small push, and it springs open. The leaving group is what happens next, not the reason it breaks.”</p>
               </div>
-              <p class="transcript">“The ring is already pulled tight. A small push, and it springs open. The leaving group is what happens next, not the reason it breaks.”</p>
-            </div>
 
-            <div class="fmt" id="panel-video" role="tabpanel" aria-labelledby="fmt-video" data-panel="video" hidden>
-              <button type="button" class="screen" data-video aria-pressed="false">
-                <span class="scene">
-                  <svg viewBox="0 0 220 110" aria-hidden="true">
-                    <g class="ring-closed"><rect x="78" y="28" width="52" height="52" rx="8" /><circle cx="104" cy="54" r="3" /></g>
-                    <g class="ring-open"><path d="M36 72 C70 72 84 36 110 36 S150 72 186 72" /><circle cx="110" cy="36" r="3" /></g>
-                  </svg>
-                  <span class="play-badge">Play</span>
-                </span>
-                <span class="transport"><i></i><span>0:18 · Ring strain</span></span>
-              </button>
-            </div>
-            <div class="composer"><span>Ask about this concept</span><b>Send</b></div>
+              <div class="fmt" id="panel-video" role="tabpanel" aria-labelledby="fmt-video" data-panel="video" hidden>
+                <div class="video" data-media data-total="17" data-label="video">
+                  <div class="vscreen" data-surface>
+                    <svg class="vsvg" viewBox="0 0 220 110" aria-hidden="true">
+                      <g class="ring-closed"><rect x="78" y="28" width="52" height="52" rx="8" /><circle cx="104" cy="54" r="3" /></g>
+                      <g class="ring-open"><path d="M36 72 C70 72 84 36 110 36 S150 72 186 72" /><circle cx="110" cy="36" r="3" /></g>
+                    </svg>
+                    <span class="big-play" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" /></svg></span>
+                  </div>
+                  <div class="vbar">
+                    <button type="button" class="icon-btn" data-toggle aria-label="Play video" aria-pressed="false">
+                      <svg class="ic i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" /></svg>
+                      <svg class="ic i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" /></svg>
+                    </button>
+                    <span class="vtime" data-time>0:00 / 0:17</span>
+                    <span class="scrub"><i data-bar></i></span>
+                    <svg class="ic dim" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" /><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+                    <svg class="ic dim" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="composer"><span>Ask about this concept</span><b>Send</b></div>
             </div>
             <nav class="phone-nav"><span>Home</span><span>Learn</span><span class="on">Tutor</span><span>Files</span><span>Practice</span><span>Progress</span></nav>
           </div>
@@ -252,10 +293,10 @@
       </div>
     </section>
 
+    <!-- Practice -->
     <section class="feature tint">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow"><span>04</span> More than understanding. Be ready to answer.</p>
           <h2>Knowing the theory is only half the work. Can you actually solve the questions?</h2>
           <p>Kowe takes your preparation beyond ordinary quizzes.</p>
         </div>
@@ -284,61 +325,61 @@
       </div>
     </section>
 
+    <!-- Spaced repetition -->
     <section class="feature">
       <div class="container split flip">
         <div class="copy">
-          <p class="eyebrow"><span>05</span> Don't forget what you've learned.</p>
           <h2>Keep the knowledge you've worked so hard to build.</h2>
           <p>Kowe uses spaced repetition to bring concepts back for review at appropriate intervals. Revisit difficult topics, strengthen your recall and retain what you've learned beyond the next examination.</p>
         </div>
-        <div class="visual">
-          <div class="phone" aria-hidden="true">
+        <div class="showcase tone-sand" aria-hidden="true">
+          <div class="phone">
             <header class="phone-top">
               <span class="kmark">K</span>
-              <div class="phone-id"><b>KOWE AI <em>Progress</em></b><small><i></i>UNILAG · Pharmacy 300L</small></div>
+              <div class="phone-id"><b>KOWE AI <em>Practice</em></b><small><i></i>UNILAG · Pharmacy 300L</small></div>
             </header>
             <div class="phone-body">
               <p class="screen-kicker">Spaced repetition</p>
               <h3 class="dash-hi">Beta-lactam ring</h3>
               <p class="dash-sub">Brought back when recall is about to slip.</p>
-              <div class="review on"><b>Day 1</b><span>Reviewed</span></div>
-              <div class="review on"><b>Day 3</b><span>Reviewed</span></div>
-              <div class="review on"><b>Day 8</b><span>Reviewed</span></div>
+              <div class="review"><b>Day 1</b><span>Reviewed</span></div>
+              <div class="review"><b>Day 3</b><span>Reviewed</span></div>
+              <div class="review"><b>Day 8</b><span>Reviewed</span></div>
               <div class="review due"><b>Day 21</b><span>Due next</span></div>
             </div>
-            <nav class="phone-nav"><span>Home</span><span>Learn</span><span>Tutor</span><span>Files</span><span>Practice</span><span class="on">Progress</span></nav>
+            <nav class="phone-nav"><span>Home</span><span>Learn</span><span>Tutor</span><span>Files</span><span class="on">Practice</span><span>Progress</span></nav>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Progress -->
     <section class="feature tint">
       <div class="container split">
         <div class="copy">
-          <p class="eyebrow"><span>06</span> Your preparation keeps getting smarter.</p>
           <h2>Every answer teaches Kowe more about what you need next.</h2>
           <p>As you learn and practise, Kowe tracks your progress, updates its understanding of your knowledge and adjusts your learning plan. Less guesswork. More purposeful study. Better preparation.</p>
         </div>
-        <div class="visual">
-          <div class="phone" aria-hidden="true">
+        <div class="showcase tone-sky" aria-hidden="true">
+          <div class="phone">
             <header class="phone-top">
               <span class="kmark">K</span>
               <div class="phone-id"><b>KOWE AI <em>Progress</em></b><small><i></i>UNILAG · Pharmacy 300L</small></div>
             </header>
             <div class="phone-body">
-              <p class="screen-kicker">Analytics · updated after 12 answers</p>
+              <p class="screen-kicker">Updated after 12 answers</p>
               <h3 class="dash-hi">Exam readiness</h3>
               <div class="kpis">
                 <div><b>78%</b><span>Ready</span></div>
                 <div><b>24/28</b><span>Modules</span></div>
                 <div><b>3</b><span>Flagged</span></div>
               </div>
-              <article class="screen-card task">
+              <article class="screen-card">
                 <div><span class="code soft">PCH 301</span> <span class="kind">Next</span></div>
                 <p>Beta-lactam cleavage · 3 questions</p>
                 <div class="task-foot"><span>Plan adjusted</span><span class="pill-btn">Start</span></div>
               </article>
-              <article class="screen-card task">
+              <article class="screen-card">
                 <div><span class="code soft">PCH 301</span> <span class="kind">Friday</span></div>
                 <p>Past-paper pattern added</p>
                 <div class="task-foot"><span>From missed answers</span><span class="pill-btn quiet">Queued</span></div>
@@ -350,10 +391,10 @@
       </div>
     </section>
 
+    <!-- Final call to action -->
     <section class="final-cta" id="join">
       <div class="container">
         <div class="cta-panel">
-          <p class="eyebrow light">Free access at launch</p>
           <h2>Your next exam deserves a better way to prepare.</h2>
           <p>Be among the first to experience personalised learning that knows what you need to work on and helps you get there.</p>
           <form class="waitlist-form" data-source="final" novalidate>
@@ -377,6 +418,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

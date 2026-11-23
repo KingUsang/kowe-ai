@@ -13,7 +13,6 @@ const WAITLIST_ENDPOINT = "";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-document.documentElement.classList.add("js");
 document.getElementById("year").textContent = new Date().getFullYear();
 
 function setStatus(form, message, type) {
@@ -79,28 +78,11 @@ document.querySelectorAll(".waitlist-form").forEach((form) => {
   });
 });
 
-// Fade sections in as they scroll into view
-const revealEls = document.querySelectorAll(".reveal");
-if ("IntersectionObserver" in window) {
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in");
-          io.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-  );
-  revealEls.forEach((el) => io.observe(el));
-} else {
-  revealEls.forEach((el) => el.classList.add("in"));
-}
+/* Materials: choose a file to see what Kowe takes from it */
 const MATERIAL_NOTES = {
   drive: ["6 topics · 42 concepts", "Your Drive folders become one plan: outcomes, readings and the exam in 5 weeks."],
   syllabus: ["12 outcomes", "The syllabus sets what you are expected to learn, so the plan follows the course, not a generic outline."],
-  slides: ["Lecture 4 · mechanisms", "These slides put beta-lactam cleavage and ring strain on this week’s plan."],
+  slides: ["Lecture 4 · mechanisms", "These slides put beta-lactam cleavage and ring strain on this week's plan."],
   book: ["Chapters 1–6", "The textbook fills the prerequisite gaps the lectures assume you already have."],
   past: ["2021–2025 papers", "Past questions set the format: how marks are awarded, and which patterns repeat."],
 };
@@ -125,12 +107,69 @@ if (materials) {
   });
 }
 
+/* Simulated audio and video playback. Nothing is actually played. */
+function formatTime(seconds) {
+  return Math.floor(seconds / 60) + ":" + String(Math.floor(seconds % 60)).padStart(2, "0");
+}
+
+function wireMedia(root) {
+  const total = Number(root.dataset.total);
+  const label = root.dataset.label;
+  const button = root.querySelector("[data-toggle]");
+  const timeEl = root.querySelector("[data-time]");
+  const barEl = root.querySelector("[data-bar]");
+  let elapsed = 0;
+  let timer = null;
+
+  function render() {
+    timeEl.textContent = formatTime(elapsed) + " / " + formatTime(total);
+    barEl.style.width = (elapsed / total) * 100 + "%";
+  }
+
+  function stop() {
+    clearInterval(timer);
+    timer = null;
+    root.classList.remove("playing");
+    button.setAttribute("aria-pressed", "false");
+    button.setAttribute("aria-label", "Play " + label);
+  }
+
+  function start() {
+    root.classList.add("playing");
+    button.setAttribute("aria-pressed", "true");
+    button.setAttribute("aria-label", "Pause " + label);
+    timer = setInterval(() => {
+      elapsed = Math.min(total, elapsed + 0.25);
+      render();
+      if (elapsed >= total) {
+        stop();
+        elapsed = 0;
+        render();
+      }
+    }, 250);
+  }
+
+  function toggle() {
+    if (timer) stop();
+    else start();
+  }
+
+  button.addEventListener("click", toggle);
+  const surface = root.querySelector("[data-surface]");
+  if (surface) surface.addEventListener("click", toggle);
+  render();
+  return stop;
+}
+
+/* Tutor: switch lesson format */
 const studio = document.querySelector("[data-formats]");
 if (studio) {
   const tabs = [...studio.querySelectorAll("[data-format]")];
   const panels = [...studio.querySelectorAll("[data-panel]")];
+  const stoppers = [...studio.querySelectorAll("[data-media]")].map(wireMedia);
 
   function selectFormat(id) {
+    stoppers.forEach((stop) => stop());
     tabs.forEach((tab) => {
       const on = tab.dataset.format === id;
       tab.classList.toggle("on", on);
@@ -155,27 +194,8 @@ if (studio) {
     });
   });
 
-  const player = studio.querySelector("[data-player]");
-  const play = player && player.querySelector(".play");
-  if (play) {
-    play.addEventListener("click", () => {
-      const on = player.classList.toggle("playing");
-      play.setAttribute("aria-pressed", on ? "true" : "false");
-      play.textContent = on ? "Pause" : "Play";
-    });
-  }
-
-  const video = studio.querySelector("[data-video]");
-  if (video) {
-    video.addEventListener("click", () => {
-      const on = video.classList.toggle("playing");
-      video.setAttribute("aria-pressed", on ? "true" : "false");
-      const badge = video.querySelector(".play-badge");
-      if (badge) badge.textContent = on ? "Pause" : "Play";
-    });
-  }
-
   const steps = studio.querySelector("[data-steps]");
+  const diagram = studio.querySelector("[data-diagram]");
   if (steps) {
     steps.querySelectorAll("[data-step]").forEach((button) => {
       button.addEventListener("click", () => {
@@ -184,6 +204,7 @@ if (studio) {
         studio.querySelectorAll("[data-step-copy]").forEach((line) => {
           line.hidden = line.dataset.stepCopy !== id;
         });
+        if (diagram) diagram.dataset.active = id;
       });
     });
   }
